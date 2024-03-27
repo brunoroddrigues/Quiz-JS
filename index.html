@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body{background-color: gray;}
+        button{color: red;}
+        button{font-family: sans-serif;}
+        button{font-size: 120%;}
+        button:hover{background-color: red; color: black;}
+        button{margin-right: 30px;}
+        h1{font-family: Arial, Helvetica, sans-serif;}
+        h1{font-size: 50px;}
+        h1{background-image: linear-gradient(red,red,red,black,red,red);
+        background-clip: text;
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        line-height: 1.1;}
+        label{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+        li{font-size: 25px;}
+        #resultado{color: blue;
+        font-size: 25px;}
+    </style>
+</head>
+<body onload="iniciar()">
+    <h1>QUIZ</h1>
+    <h2>Você tem 15 segundos para responder</h2>
+    <h2 id="tempo">Tempo: 15</h2>
+    <div id="mensagem_tempo"></div>
+    <div id="resultado"></div>
+
+    <ol>
+        <li>Qual dessas artes marciais é conhecida como arte suave?</li>
+        <input type="radio" name="pergunta1" value="certa">
+        <label>Jiu-jitsu</label>
+        <br>
+        <input type="radio" name="pergunta1" value="errada">
+        <label>Muay thai</label>
+        <br>
+        <input type="radio" name="pergunta1" value="errada">
+        <label>Karate</label>
+        <br>
+        <input type="radio" name="pergunta1" value="errada">
+        <label>Kicyboxing</label>
+        <br><br>
+
+        <li>Qual dessas artes tem origem brasileira?</li>
+        <input type="radio" name="pergunta2" value="errada">
+        <label>Judo</label>
+        <br>
+        <input type="radio" name="pergunta2" value="errada">
+        <label>Kung-fu</label>
+        <br>
+        <input type="radio" name="pergunta2" value="certa">
+        <label>Capoeira</label>
+        <br>
+        <input type="radio" name="pergunta2" value="errada">
+        <label>Boxing</label>
+        <br><br>
+
+        <li>Quem é considerado o melhor do boxing?</li>
+        <input type="radio" name="pergunta3" value="errada">
+        <label>Mike Tyson</label>
+        <br>
+        <input type="radio" name="pergunta3" value="certa">
+        <label>Muhammad Ali</label>
+        <br>
+        <input type="radio" name="pergunta3" value="errada">
+        <label>Popo</label>
+        <br>
+        <input type="radio" name="pergunta3" value="errada">
+        <label>Eder jofre</label>
+        <br><br>
+    </ol>
+
+    <button onclick="verificar()">Enviar</button>
+    <button onclick="location.reload()">Reiniciar</button>
+
+    <script>
+        let tempo = 15;
+        let esgotado;
+        let tempoEsgotado = false;
+
+        function iniciar()
+        {
+            esgotado = setInterval(function(){
+            tempo --;
+            document.getElementById("tempo").innerHTML = "Tempo " + tempo;
+            if(tempo == 0)
+            {
+                clearInterval(esgotado);
+                document.getElementById("mensagem_tempo").innerHTML = "Tempo esgotado!";
+                tempoEsgotado = true; 
+                desabilitarOpcoesResposta(); // Chamar a função para desabilitar as opções de resposta
+            }
+            }, 1000);
+        }
+
+        function desabilitarOpcoesResposta() {
+            let opcoesResposta = document.querySelectorAll('input[type="radio"]');
+            opcoesResposta.forEach(function(opcao) {
+                opcao.disabled = true;
+            });
+        }
+
+        function verificar()
+        {
+            if (tempoEsgotado) {
+                return;
+            }
+            clearInterval(esgotado);
+
+            let resposta1 = document.querySelector('input[name="pergunta1"]:checked');
+            let resposta2 = document.querySelector('input[name="pergunta2"]:checked');
+            let resposta3 = document.querySelector('input[name="pergunta3"]:checked');
+
+
+            let resultado = document.getElementById("resultado");
+
+            if(resposta1 && resposta2 && resposta3)
+            {
+                if(resposta1.value === "certa" && resposta2.value === "certa" && resposta3.value === "certa")
+                {
+                    resultado.innerHTML = "Parabens! Você acertou todas as perguntas";
+                }
+                else
+                {
+                    resultado.innerHTML = "Você errou uma ou mais perguntas, Tente novamente";
+                }
+            }
+            else
+            {
+                resultado.innerHTML = "Por favor, responda todas as perguntas.";
+            }
+        }
+    </script>
+
+</body>
+</html>
