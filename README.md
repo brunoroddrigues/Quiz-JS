@@ -1,15 +1,25 @@
-  ***Bruno Aparecido Rodrigues***
-        ***Quiz***
+***Bruno Aparecido Rodrigues*** 
 
-# Atividade Html e JS -> Quiz
+# Quiz Game
 
-## Visão Geral
+Este é um jogo de quiz simples desenvolvido utilizando JavaScript, HTML e CSS.
 
-O Quiz em JavaScript é uma aplicação interativa que permite aos usuários testar seus conhecimentos respondendo a uma série de perguntas. A aplicação fornece feedback imediato sobre as respostas e mostra a pontuação final do usuário no final do quiz.
+## Como Jogar
+
+
+1. Clone ou baixe este repositório.
+2. Abra o arquivo `index.html` em seu navegador web.
+3. Selecione a resposta correta para cada pergunta.
+4. Ao final do jogo, você verá sua pontuação.
 
 ## Tecnologias Utilizadas
 
-- HTML
-- CSS
 - JavaScript
+- HTML5
+- CSS3
+
+## Demonstração
+Precisa selecionar uma opção, tendo que responder dentro do tempo do jogo.
+![print_quiz](https://github.com/brunoroddrigues/Quiz-JS/assets/142831593/a665e37e-079f-4c51-90ac-bc3dc26fa476)
+
 
