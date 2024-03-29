@@ -19,7 +19,9 @@ Este é um jogo de quiz simples desenvolvido utilizando JavaScript, HTML e CSS.
 - CSS3
 
 ## Demonstração
-Precisa selecionar uma opção para cada pergunta, tendo que responder dentro do tempo do jogo, ao terminar clicar em enviar pra saber o resultado.
+Precisa selecionar uma opção para cada pergunta, tendo que responder dentro do tempo do jogo,
+ao terminar clicar em enviar pra saber o resultado.
+
 ![print_quiz](https://github.com/brunoroddrigues/Quiz-JS/assets/142831593/a665e37e-079f-4c51-90ac-bc3dc26fa476)
 
 
